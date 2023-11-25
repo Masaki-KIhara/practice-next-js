@@ -1,5 +1,5 @@
 import { GlobeAltIcon } from "@heroicons/react/24/outline";
-import { lusitana } from "./fonts";
+import { lusitana } from "../fonts";
 
 export const Header = () => {
   return (
