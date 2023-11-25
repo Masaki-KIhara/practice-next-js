@@ -4,7 +4,7 @@ import { Header } from "./components/layouts/header";
 export default function Home() {
   return (
     <>
-      <Header />
+      <Header width={"w-[98%]"} />
       <Body />
     </>
   );
