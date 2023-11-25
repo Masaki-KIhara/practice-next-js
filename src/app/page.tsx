@@ -1,5 +1,5 @@
-import { Body } from "./ui/layouts/body";
-import { Header } from "./ui/layouts/header";
+import { Body } from "./components/layouts/body";
+import { Header } from "./components/layouts/header";
 
 export default function Home() {
   return (
