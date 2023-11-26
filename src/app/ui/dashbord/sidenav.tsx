@@ -4,6 +4,7 @@ import {
   UserGroupIcon,
   HomeIcon,
   DocumentDuplicateIcon,
+  PowerIcon,
 } from "@heroicons/react/24/outline";
 import { ReactNode } from "react";
 
@@ -47,6 +48,13 @@ export default function SideNav() {
           </Link>
         );
       })}
+      <div className="bg-[#f8f9fb] block mx-auto flex w-[90%] h-[45vh] rounded mt-[10px]"></div>
+      <Link href={"/"}>
+        <div className="bg-[#f8f9fb] block mx-auto flex w-[90%] h-10 rounded mt-[10px] hover:bg-[#2e6ee9] hover:text-white">
+          <PowerIcon className="w-6" />
+          <p className="ml-[2px] mt-[9px]">Sign Out</p>
+        </div>
+      </Link>
     </>
   );
 }
