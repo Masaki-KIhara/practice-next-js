@@ -1,3 +1,5 @@
+"use client";
+
 import { Header } from "@/app/components/layouts/header";
 import Link from "next/link";
 import {
@@ -7,6 +9,8 @@ import {
   PowerIcon,
 } from "@heroicons/react/24/outline";
 import { ReactNode } from "react";
+import clsx from "clsx";
+import { usePathname } from "next/navigation";
 
 type LnkListType = {
   title: string;
@@ -33,6 +37,7 @@ const linkList: LnkListType = [
 ];
 
 export default function SideNav() {
+  const pathname = usePathname();
   return (
     <>
       <Link href="/">
@@ -40,20 +45,26 @@ export default function SideNav() {
       </Link>
       {linkList.map((item) => {
         return (
-          <Link key={item.title} href={item.link}>
-            <div className="bg-[#f8f9fb] block mx-auto flex w-[90%] h-10 rounded mt-[10px] hover:bg-[#2e6ee9] hover:text-white">
-              {item.icon}
-              <p className="ml-[2px] mt-[9px]">{item.title}</p>
-            </div>
+          <Link
+            key={item.title}
+            href={item.link}
+            className={clsx(
+              "bg-[#f8f9fb] block mx-auto flex w-[90%] gap-2 h-10 rounded mt-[10px] hover:bg-[#2e6ee9] hover:text-white",
+              { "bg-[#2d6ee9] text-white": pathname === item.link }
+            )}
+          >
+            {item.icon}
+            <p className="ml-[2px] mt-[9px]">{item.title}</p>
           </Link>
         );
       })}
       <div className="bg-[#f8f9fb] block mx-auto flex w-[90%] h-[45vh] rounded mt-[10px]"></div>
-      <Link href={"/"}>
-        <div className="bg-[#f8f9fb] block mx-auto flex w-[90%] h-10 rounded mt-[10px] hover:bg-[#2e6ee9] hover:text-white">
-          <PowerIcon className="w-6" />
-          <p className="ml-[2px] mt-[9px]">Sign Out</p>
-        </div>
+      <Link
+        href={"/"}
+        className="bg-[#f8f9fb] block mx-auto flex w-[90%] gap-2 h-10 rounded mt-[10px] hover:bg-[#2e6ee9] hover:text-white"
+      >
+        <PowerIcon className="w-6 ml-[12px]" />
+        <p className="ml-[2px] mt-[9px]">Sign Out</p>
       </Link>
     </>
   );
