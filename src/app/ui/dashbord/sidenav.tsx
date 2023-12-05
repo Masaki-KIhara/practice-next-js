@@ -48,10 +48,11 @@ export default function SideNav() {
           <Link
             key={item.title}
             href={item.link}
-            className={clsx(
-              "bg-[#f8f9fb] block mx-auto flex w-[90%] gap-2 h-10 rounded mt-[10px] hover:bg-[#2e6ee9] hover:text-white",
-              { "bg-[#2d6ee9] text-white": pathname === item.link }
-            )}
+            className={` block" mx-auto flex w-[90%] gap-2 h-10 rounded mt-[10px] hover:bg-[#2e6ee9] hover:text-white ${
+              pathname === item.link
+                ? "bg-[#2d6ee9] text-white"
+                : "bg-[#f8f9fb] "
+            }`}
           >
             {item.icon}
             <p className="ml-[2px] mt-[9px]">{item.title}</p>
